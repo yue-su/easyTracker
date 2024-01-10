@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<head>
+    <title>Easy Tracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="{% url 'home' %}">
+                Easy Tracker
+            </a>
+        </h1>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </header>
+</body>
+</html>

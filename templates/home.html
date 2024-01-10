@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for stock in stock_list %}
+  <div class="stock-entry">
+    <h3><a href="">{{ stock.ticker }}</a></h3>
+  </div>
+{% endfor %}
+{% endblock content %}
