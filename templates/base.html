@@ -2,20 +2,21 @@
 <html>
 <head>
     <title>Easy Tracker</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"></head>
 <body>
-    <header>
-        <h1>
-            <a href="{% url 'home' %}">
-                Easy Tracker
-            </a>
-        </h1>
-        <div>
+    <section class="section">
+        <div class="container">
+            <h1 class="title is-1">
+                <a href="{% url 'home' %}">
+                    Easy Tracker
+                </a>
+            </h1>
+        </div>
+    </section>
+        <section class="section">
             {% block content %}
             {% endblock content %}
-        </div>
-    </header>
+        </section>
 </body>
 </html>

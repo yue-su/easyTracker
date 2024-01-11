@@ -35,10 +35,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@ln%7ky$9z%g-f04&&2*a8l2-(6y63-ayy#wiakexd4lcfr_i1'
+SECRET_KEY = getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenvbool('DJANGO_DEBUG', False)
 
 # Allowed hosts
 # https://docs.djangoproject.com/en/4.2/ref/settings/#allowed-hosts
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'stock',
+    'django_q',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,14 @@ STATICFILES_DIRS=[BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Django-Q
+Q_CLUSTER = {
+    'name': 'DjangORM',
+    'workers': 1,
+    'timeout': 30,
+    'retry': 120,
+    'queue_limit': 50,
+    'bulk': 10,
+    'orm': 'default'
+}

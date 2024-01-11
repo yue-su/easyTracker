@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="columns">
 {% for stock in stock_list %}
-  <div class="stock-entry">
-    <h3><a href="">{{ stock.ticker }}</a></h3>
+  <div class="column">
+    <div class="box">
+    <h3 class="title is-3"><a href="">{{ stock.ticker }}</a></h3>
+    <p>Current Price: {{ stock.info.currentPrice }}</p>
+    <p>Previous Close: {{ stock.info.previousClose }}</p>
+    <p>Open: {{ stock.info.open }}</p>
+    <p>Today High: {{ stock.info.dayHigh }}</p>
+    <p>Today Low: {{ stock.info.dayLow }}</p>
+    <p>Today change: {{ stock.info.change }} / {{ stock.info.changePercent }}%</p>
+    <p>Last day change: {{ stock.info.lastDayChange }} / {{stock.info.lastDayChangePercent}}%</p>
+    </div>
   </div>
 {% endfor %}
+</div>
 {% endblock content %}
+
